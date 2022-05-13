@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="Setup an camera for RTMP streaming.">
+    <meta name="description" content="Uses the video4linux2 (or simply v4l2) input device to capture live input such as from a webcam.  install 1$ sudo apt install v4l-utils  To list the supported, connected capture devices you can use th">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to Setup an Camera for RTMP Streaming">
 <meta property="og:url" content="https://blog.vacabun.ml/2022/04/27/camera_rtmp/index.html">
 <meta property="og:site_name" content="僕なんか">
-<meta property="og:description" content="Setup an camera for RTMP streaming.">
+<meta property="og:description" content="Uses the video4linux2 (or simply v4l2) input device to capture live input such as from a webcam.  install 1$ sudo apt install v4l-utils  To list the supported, connected capture devices you can use th">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-26T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-05-03T14:25:29.772Z">
+<meta property="article:modified_time" content="2022-05-02T08:24:48.986Z">
 <meta property="article:author" content="vacabun">
 <meta property="article:tag" content="ffmpeg">
 <meta name="twitter:card" content="summary">
@@ -96,7 +96,7 @@
   <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://blog.vacabun.ml/2022/04/27/camera_rtmp/&title=How to Setup an Camera for RTMP Streaming"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://blog.vacabun.ml/2022/04/27/camera_rtmp/&title=How to Setup an Camera for RTMP Streaming"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
   <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://blog.vacabun.ml/2022/04/27/camera_rtmp/&title=How to Setup an Camera for RTMP Streaming"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://blog.vacabun.ml/2022/04/27/camera_rtmp/&name=How to Setup an Camera for RTMP Streaming&description=Setup an camera for RTMP streaming."><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://blog.vacabun.ml/2022/04/27/camera_rtmp/&name=How to Setup an Camera for RTMP Streaming&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
   <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://blog.vacabun.ml/2022/04/27/camera_rtmp/&t=How to Setup an Camera for RTMP Streaming"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
@@ -153,13 +153,13 @@
   <div class="content" itemprop="articleBody">
     <p>Uses the video4linux2 (or simply v4l2) input device to capture live input such as from a webcam. </p>
 <p>install</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install v4l-utils</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt install v4l-utils</span></span><br></pre></td></tr></table></figure>
 
 <p>To list the supported, connected capture devices you can use the v4l-ctl tool. This example shows two connected webcams: &#x2F;dev&#x2F;video0 and &#x2F;dev&#x2F;video1.</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">v4l2-ctl --list-devices</span><br><span class="line">USB2.0 PC CAMERA (usb-0000:00:1d.7-1):</span><br><span class="line"> /dev/video1</span><br><span class="line">UVC Camera (046d:0819) (usb-0000:00:1d.7-2):</span><br><span class="line"> /dev/video0</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">v4l2-ctl --list-devices</span></span><br><span class="line">USB2.0 PC CAMERA (usb-0000:00:1d.7-1):</span><br><span class="line"> /dev/video1</span><br><span class="line">UVC Camera (046d:0819) (usb-0000:00:1d.7-2):</span><br><span class="line"> /dev/video0</span><br></pre></td></tr></table></figure>
 
 <p>To list available formats (supported pixel formats, video formats, and frame sizes) for a particular input device:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -f v4l2 -list_formats all -i /dev/video0</span><br><span class="line">…</span><br><span class="line">[video4linux2,v4l2 @ 0xf07d80] Raw : yuyv422 : YUV 4:2:2 (YUYV) : 640x480 160x120 176x144 320x176 320x240 352x288 432x240 544x288 640x360</span><br><span class="line">[video4linux2,v4l2 @ 0xf07d80] Compressed: mjpeg : MJPEG : 640x480 160x120 176x144 320x176 320x240 352x288 432x240 544x288 640x360</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ffmpeg -f v4l2 -list_formats all -i /dev/video0</span></span><br><span class="line">…</span><br><span class="line">[video4linux2,v4l2 @ 0xf07d80] Raw : yuyv422 : YUV 4:2:2 (YUYV) : 640x480 160x120 176x144 320x176 320x240 352x288 432x240 544x288 640x360</span><br><span class="line">[video4linux2,v4l2 @ 0xf07d80] Compressed: mjpeg : MJPEG : 640x480 160x120 176x144 320x176 320x240 352x288 432x240 544x288 640x360</span><br></pre></td></tr></table></figure>
 
 <p>Alternatively you could use v4l2-ctl –list-formats-ext to list available formats.</p>
 <p>Example to encode video from &#x2F;dev&#x2F;video0</p>
@@ -219,7 +219,7 @@
   <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://blog.vacabun.ml/2022/04/27/camera_rtmp/&title=How to Setup an Camera for RTMP Streaming"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://blog.vacabun.ml/2022/04/27/camera_rtmp/&title=How to Setup an Camera for RTMP Streaming"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://blog.vacabun.ml/2022/04/27/camera_rtmp/&title=How to Setup an Camera for RTMP Streaming"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://blog.vacabun.ml/2022/04/27/camera_rtmp/&name=How to Setup an Camera for RTMP Streaming&description=Setup an camera for RTMP streaming."><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://blog.vacabun.ml/2022/04/27/camera_rtmp/&name=How to Setup an Camera for RTMP Streaming&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://blog.vacabun.ml/2022/04/27/camera_rtmp/&t=How to Setup an Camera for RTMP Streaming"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
