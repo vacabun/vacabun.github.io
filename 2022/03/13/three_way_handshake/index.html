@@ -9,7 +9,7 @@
     <meta name="description" content="为什么需要三次握手场景节点a需要向节点b完成一次通信。 一次握手a直接发送数据，a无法得知b是否正确收到数据。 两次握手a发送数据，b接收到数据后向a返回一个接收成功信号(ack)。 （a若超时未接收到ack信号，可得知b未成功接收第一次发送的信号，a重发。） 但节点b无法得知节点a是否成功接收到ack信号。 三次握手a发送数据，b接收到数据后向a返回一个接收成功信号(ack)。 （a若超时未接收">
 <meta property="og:type" content="article">
 <meta property="og:title" content="为什么需要三次握手">
-<meta property="og:url" content="https://blog.vacabun.ml/2022/03/13/three_way_handshake/index.html">
+<meta property="og:url" content="https://vacabun.github.io/2022/03/13/three_way_handshake/index.html">
 <meta property="og:site_name" content="僕なんか">
 <meta property="og:description" content="为什么需要三次握手场景节点a需要向节点b完成一次通信。 一次握手a直接发送数据，a无法得知b是否正确收到数据。 两次握手a发送数据，b接收到数据后向a返回一个接收成功信号(ack)。 （a若超时未接收到ack信号，可得知b未成功接收第一次发送的信号，a重发。） 但节点b无法得知节点a是否成功接收到ack信号。 三次握手a发送数据，b接收到数据后向a返回一个接收成功信号(ack)。 （a若超时未接收">
 <meta property="og:locale" content="en_US">
@@ -89,17 +89,17 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://blog.vacabun.ml/2022/03/13/three_way_handshake/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://blog.vacabun.ml/2022/03/13/three_way_handshake/&text=为什么需要三次握手"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://blog.vacabun.ml/2022/03/13/three_way_handshake/&title=为什么需要三次握手"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://blog.vacabun.ml/2022/03/13/three_way_handshake/&is_video=false&description=为什么需要三次握手"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=为什么需要三次握手&body=Check out this article: https://blog.vacabun.ml/2022/03/13/three_way_handshake/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://blog.vacabun.ml/2022/03/13/three_way_handshake/&title=为什么需要三次握手"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://blog.vacabun.ml/2022/03/13/three_way_handshake/&title=为什么需要三次握手"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://blog.vacabun.ml/2022/03/13/three_way_handshake/&title=为什么需要三次握手"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://blog.vacabun.ml/2022/03/13/three_way_handshake/&title=为什么需要三次握手"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://blog.vacabun.ml/2022/03/13/three_way_handshake/&name=为什么需要三次握手&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://blog.vacabun.ml/2022/03/13/three_way_handshake/&t=为什么需要三次握手"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://vacabun.github.io/2022/03/13/three_way_handshake/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://vacabun.github.io/2022/03/13/three_way_handshake/&text=为什么需要三次握手"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://vacabun.github.io/2022/03/13/three_way_handshake/&title=为什么需要三次握手"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://vacabun.github.io/2022/03/13/three_way_handshake/&is_video=false&description=为什么需要三次握手"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=为什么需要三次握手&body=Check out this article: https://vacabun.github.io/2022/03/13/three_way_handshake/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://vacabun.github.io/2022/03/13/three_way_handshake/&title=为什么需要三次握手"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://vacabun.github.io/2022/03/13/three_way_handshake/&title=为什么需要三次握手"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://vacabun.github.io/2022/03/13/three_way_handshake/&title=为什么需要三次握手"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://vacabun.github.io/2022/03/13/three_way_handshake/&title=为什么需要三次握手"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://vacabun.github.io/2022/03/13/three_way_handshake/&name=为什么需要三次握手&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://vacabun.github.io/2022/03/13/three_way_handshake/&t=为什么需要三次握手"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -190,17 +190,17 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://blog.vacabun.ml/2022/03/13/three_way_handshake/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://blog.vacabun.ml/2022/03/13/three_way_handshake/&text=为什么需要三次握手"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://blog.vacabun.ml/2022/03/13/three_way_handshake/&title=为什么需要三次握手"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://blog.vacabun.ml/2022/03/13/three_way_handshake/&is_video=false&description=为什么需要三次握手"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=为什么需要三次握手&body=Check out this article: https://blog.vacabun.ml/2022/03/13/three_way_handshake/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://blog.vacabun.ml/2022/03/13/three_way_handshake/&title=为什么需要三次握手"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://blog.vacabun.ml/2022/03/13/three_way_handshake/&title=为什么需要三次握手"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://blog.vacabun.ml/2022/03/13/three_way_handshake/&title=为什么需要三次握手"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://blog.vacabun.ml/2022/03/13/three_way_handshake/&title=为什么需要三次握手"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://blog.vacabun.ml/2022/03/13/three_way_handshake/&name=为什么需要三次握手&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://blog.vacabun.ml/2022/03/13/three_way_handshake/&t=为什么需要三次握手"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://vacabun.github.io/2022/03/13/three_way_handshake/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://vacabun.github.io/2022/03/13/three_way_handshake/&text=为什么需要三次握手"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://vacabun.github.io/2022/03/13/three_way_handshake/&title=为什么需要三次握手"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://vacabun.github.io/2022/03/13/three_way_handshake/&is_video=false&description=为什么需要三次握手"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=为什么需要三次握手&body=Check out this article: https://vacabun.github.io/2022/03/13/three_way_handshake/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://vacabun.github.io/2022/03/13/three_way_handshake/&title=为什么需要三次握手"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://vacabun.github.io/2022/03/13/three_way_handshake/&title=为什么需要三次握手"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://vacabun.github.io/2022/03/13/three_way_handshake/&title=为什么需要三次握手"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://vacabun.github.io/2022/03/13/three_way_handshake/&title=为什么需要三次握手"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://vacabun.github.io/2022/03/13/three_way_handshake/&name=为什么需要三次握手&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://vacabun.github.io/2022/03/13/three_way_handshake/&t=为什么需要三次握手"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
