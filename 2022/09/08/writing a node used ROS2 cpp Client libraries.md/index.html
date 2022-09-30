@@ -14,7 +14,7 @@
 <meta property="og:description" content="Create a packageNavigate into the workspace directory 1ros2 pkg create --build-type ament_cmake [package_name]  Write the codeNavigate into [workspace_directory]&#x2F;src&#x2F;[cpp_package_name]&#x2F;src write the n">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-09-07T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-09-09T03:25:04.451Z">
+<meta property="article:modified_time" content="2022-09-30T11:30:10.176Z">
 <meta property="article:author" content="vacabun">
 <meta property="article:tag" content="ROS2">
 <meta name="twitter:card" content="summary">
@@ -170,7 +170,7 @@
 
 <h1 id="Build-and-run"><a href="#Build-and-run" class="headerlink" title="Build and run"></a>Build and run</h1><p>Navigate into the workspace directory</p>
 <p>Run <code>rosdep</code> in the root of your workspace to check for missing dependencies before building.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rosdep update</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rosdep update</span><br><span class="line">and</span><br><span class="line">rosdep install -i --from-path src --rosdistro foxy -y</span><br></pre></td></tr></table></figure>
 
 <p>Still in the root of the workspace, build the package.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">colcon build --packages-select [package_name]</span><br></pre></td></tr></table></figure>
